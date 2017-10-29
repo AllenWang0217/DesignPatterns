@@ -4,6 +4,7 @@
 #include "TestHelper/TestBuilder.h"
 #include "TestHelper/TestPrototype.h"
 #include "TestHelper/TestObserver.h"
+#include "TestHelper/TestVisitor.h"
 
 void main() {
 //	TestFactoryMethod testFactoryMethod;
@@ -11,5 +12,6 @@ void main() {
 //	TestSingleton testSingleton;
 //	TestBuilder testBuilder;
 //	TestPrototype testPrototype;
-	TestObserver testObserver;
+//	TestObserver testObserver;
+	TestVisitor testVisitor;
 }
