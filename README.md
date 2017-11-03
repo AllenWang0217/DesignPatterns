@@ -365,3 +365,153 @@ ObjectStrture 中的accept方法会遍历成员变量中每一个Element，并�
 **小结**
 
 正如《设计模式》的作者GoF对访问者模式的描述：大多数情况下，你并需要使用访问者模式，但是当你一旦需要使用它时，那你就是真的需要它了。当然这只是针对真正的大牛而言。在现实情况下（至少是我所处的环境当中），很多人往往沉迷于设计模式，他们使用一种设计模式时，从来不去认真考虑所使用的模式是否适合这种场景，而往往只是想展示一下自己对面向对象设计的驾驭能力。编程时有这种心理，往往会发生滥用设计模式的情况。所以，在学习设计模式时，一定要理解模式的适用性。必须做到使用一种模式是因为了解它的优点，不使用一种模式是因为了解它的弊端；而不是使用一种模式是因为不了解它的弊端，不使用一种模式是因为不了解它的优点。
+
+## 中介者模式
+
+**定义**
+
+用一个中介者对象封装一系列的对象交互，中介者使各对象不需要显示地相互作用，从而使耦合松散，而且可以独立地改变它们之间的交互。
+
+**动机**
+
+先了解同事类的概念：如果一个对象会影响其他的对象，同时也会被其他对象影响，那么这两个对象称为同事类。
+
+ 一般来说，同事类之间的关系是比较复杂的，多个同事类之间互相关联时，他们之间的关系会呈现为复杂的网状结构，这是一种过度耦合的架构，即不利于类的复用，也不稳定。例如在下图中，有六个同事类对象，假如对象1发生变化，那么将会有4个对象受到影响。如果对象3发生变化，那么将会有3个对象受到影响。也就是说，同事类之间直接关联的设计是不好的。
+
+![net-like](D:\CodeForC++\DailyLearning\DesignPatterns\DesignPatterns\pic\MediatorPattern\net-like.jpg)
+
+如果引入中介者模式，那么同事类之间的关系将变为星型结构，从图中可以看到，任何一个类的变动，只会影响的类本身，以及中介者，这样就减小了系统的耦合。一个好的设计，必定不会把所有的对象关系处理逻辑封装在本类中，而是使用一个专门的类来管理那些不属于自己的行为。
+
+![star-like](D:\CodeForC++\DailyLearning\DesignPatterns\DesignPatterns\pic\MediatorPattern\star-like.jpg)
+
+```cpp
+#include <iostream>
+using namespace std;
+
+class AbstractColleague {
+public:
+	virtual int getNumber() {
+		return number;
+	}
+	virtual void setNumber(int number) {
+		this->number = number;
+	}
+
+	//抽象方法，修改数字时同时修改关联对象  
+	virtual void changeNumber(int number, AbstractColleague* coll) {};
+protected:
+	int number;
+};  
+  
+class ColleagueA : public AbstractColleague {
+public:
+	void changeNumber(int number, AbstractColleague* coll) {
+		this->number = number;
+		coll->setNumber(number * 100);
+	}
+};
+  
+class ColleagueB : public AbstractColleague {
+public:
+	void changeNumber(int number, AbstractColleague* coll) {
+		this->number = number;
+		coll->setNumber(number / 100);
+	}
+};
+  
+void main() {  
+		AbstractColleague *collA = new ColleagueA();
+		AbstractColleague *collB = new ColleagueB();
+
+		cout << "==========设置A影响B==========" << endl;
+		collA->changeNumber(1288, collB);
+		cout << "collA的number值：" << collA->getNumber() << endl;
+		cout << "collB的number值：" << collB->getNumber() << endl;
+
+		cout << "==========设置B影响A==========" << endl;
+		collB->changeNumber(87635, collA);
+		cout << "collB的number值：" << collB->getNumber() << endl;
+		cout << "collA的number值：" << collA->getNumber() << endl;
+}  
+```
+
+上面的代码中，类A类B通过直接的关联发生关系，假如我们要使用中介者模式，类A类B之间则不可以直接关联，他们之间必须要通过一个中介者来达到关联的目的。
+
+```cpp
+#include <iostream>
+using namespace std;
+
+class AbstractColleague {
+public:
+	int getNumber() {
+		return number;
+	}
+	void setNumber(int number) {
+		this->number = number;
+	}
+
+	void changeNumber(int number, Mediator* med) {
+		this->number = number;
+		med->affect(number, this);  //通过调用中介者的affect方法来对其他的同事产生影响
+	}
+protected:
+	int number;
+};
+
+//同事A
+class ColleagueA : public AbstractColleague {};
+
+//同事B
+class ColleagueB : public AbstractColleague {};
+
+class Mediator {
+public:
+	Mediator(ColleagueA* collA, ColleagueB* collB) : collA(collA), collB(collB) {}
+	void affect(int number, AbstractColleague* coll) {//中介者通过入参类型来判断具体的影响
+		if (coll == collA) {
+			collB->setNumber(number * 100);
+		}
+		if (coll == collB) {
+			collA->setNumber(number / 100);
+		}
+	};
+private:
+	ColleagueA* collA;
+	ColleagueB* collB;
+};
+```
+
+**类图**
+
+![Mediator](D:\CodeForC++\DailyLearning\DesignPatterns\DesignPatterns\pic\MediatorPattern\Mediator.PNG)
+
+同事类在做某些改变时会调用中介者的affect方法，通过该方法来影响其他的同事类。而中介者则要判断是哪一个类发生了变化，从而对波及类进行操作。
+
+**参与者**
+
+Mediator：中介者接口。在里面定义了各个同事之间相互交互所需要的方法，可以是公共的方法，如Change方法，也可以是小范围的交互方法。**接口是用来隔离的，如果只有一个中介者对象，预期中也没打算扩展，那就没有必要定义Mediator接口。**
+
+ConcreteMediator：具体的中介者实现对象。它需要了解并为维护每个同事对象，并负责具体的协调各个同事对象的交互关系。
+
+Colleague：同事类的定义，通常实现成为抽象类，主要负责约束同事对象的类型，并实现一些具体同事类之间的公共功能，比如，每个具体同事类都应该知道中介者对象，也就是每个同事对象都会持有中介者对象的引用，这个功能可定义在这个类中。
+
+ConcreteColleague：具体的同事类，实现自己的业务，需要与其他同事对象交互时，就通知中介对象，中介对象会负责后续的交互。
+
+**优点**
+
+适当地使用中介者模式可以避免同事类之间的过度耦合，使得各同事类之间可以相对独立地使用。
+使用中介者模式可以将对象间一对多的关联转变为一对一的关联，使对象间的关系易于理解和维护。
+使用中介者模式可以将对象的行为和协作进行抽象，能够比较灵活的处理对象间的相互作用。
+
+**缺点**
+
+“中介“承担了较多的责任，所以一旦这个中介对象出现了问题，那么整个系统就会受到重大的影响。
+
+**适用场景**
+
+在面向对象编程中，一个类必然会与其他的类发生依赖关系，完全独立的类是没有意义的。一个类同时依赖多个类的情况也相当普遍，既然存在这样的情况，说明，一对多的依赖关系有它的合理性，适当的使用中介者模式可以使原本凌乱的对象关系清晰，但是如果滥用，则可能会带来反的效果。一般来说，只有对于那种同事类之间是网状结构的关系，才会考虑使用中介者模式。可以将网状结构变为星状结构，使同事类之间的关系变的清晰一些
+中介者模式是一种比较常用的模式，也是一种比较容易被滥用的模式。对于大多数的情况，同事类之间的关系不会复杂到混乱不堪的网状结构，因此，大多数情况下，将对象间的依赖关系封装的同事类内部就可以的，没有必要非引入中介者模式。滥用中介者模式，只会让事情变的更复杂。
+
+**扩展**
+
+在同事类发生变化的时候，如果有多个中介者，可使用观察者模式将该类的变化告知所有与他有关联的中介者。
