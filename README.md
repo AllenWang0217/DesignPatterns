@@ -515,3 +515,34 @@ ConcreteColleague：具体的同事类，实现自己的业务，需要与其他
 **扩展**
 
 在同事类发生变化的时候，如果有多个中介者，可使用观察者模式将该类的变化告知所有与他有关联的中介者。
+
+## 责任链模式
+
+**定义**
+
+使多个对象都有机会处理请求，从而避免请求的发送者和接收者之间的耦合关系。将这些对象连成一条链，并沿着这条链传递该请求，直到有一个对象处理它为止。（Avoid coupling the sender of a request to itsreceiver by giving morethan one objecta chance to handle the request.Chain the receiving objects andpassthe request along the chain until an object handles it. ）
+
+**参与者**
+
+抽象处理者角色(IHandler)：定义出一个处理请求的接口。如果需要，接口可以定义 出一个方法以设定或返回对下家的引用。
+
+具体处理者角色(ConcreteHandler)：具体处理者接到请求后，可以选择将请求处理掉，或者将请求传给下家。由于具体处理者持有对下家的引用，因此，如果需要，具体处理者可以访问下家。
+
+**类图**
+
+![ChainOfResponsibilityPattern](D:\CodeForC++\DailyLearning\DesignPatterns\DesignPatterns\pic\ChainOfResponsibilityPattern.PNG)
+
+客户端可通过setNextHandler方法设置Handler的顺序
+
+**优点：** 
+
+1、降低耦合度。它将请求的发送者和接收者解耦。 2、简化了对象。使得对象不需要知道链的结构。 3、增强给对象指派职责的灵活性。通过改变链内的成员或者调动它们的次序，允许动态地新增或者删除责任。 4、增加新的请求处理类很方便。
+
+**缺点：** 
+
+1、不能保证请求一定被接收。 2、系统性能将受到一定影响，而且在进行代码调试时不太方便，可能会造成循环调用。 3、可能不容易观察运行时的特征，有碍于除错。
+
+**使用场景：** 
+
+1、有多个对象可以处理同一个请求，具体哪个对象处理该请求由运行时刻自动确定。 2、在不明确指定接收者的情况下，向多个对象中的一个提交一个请求。 3、可动态指定一组对象处理请求。
+
