@@ -7,6 +7,7 @@
 #include "TestHelper/TestVisitor.h"
 #include "TestHelper/TestMediator.h"
 #include "TestHelper/TestChainOfResponsibility.h"
+#include "TestHelper/TestTemplateMethord.h"
 
 void main() {
 //	TestFactoryMethod testFactoryMethod;
@@ -17,5 +18,6 @@ void main() {
 //	TestObserver testObserver;
 //	TestVisitor testVisitor;
 //	TestMediator testMediator;
-	TestChainOfResponsibility testChainOfResponsibility;
+//	TestChainOfResponsibility testChainOfResponsibility;
+	TestTemplateMethord testTemplateMethord;
 }
