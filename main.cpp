@@ -14,17 +14,18 @@
 #include "TestHelper/TestState.h"
 
 void main() {
-//	TestFactoryMethod testFactoryMethod;
-//	TestAbstractFactory testAbstractFactory;
-//	TestSingleton testSingleton;
-//	TestBuilder testBuilder;
-//	TestPrototype testPrototype;
-//	TestObserver testObserver;
-//	TestVisitor testVisitor;
-//	TestMediator testMediator;
-//	TestChainOfResponsibility testChainOfResponsibility;
-//	TestTemplateMethord testTemplateMethord;
-//	TestStrategy TestStrategy;
-//	TestCommand testCommand;
-//	TestMomento testMomento;
+	//	TestFactoryMethod testFactoryMethod;
+	//	TestAbstractFactory testAbstractFactory;
+	//	TestSingleton testSingleton;
+	//	TestBuilder testBuilder;
+	//	TestPrototype testPrototype;
+	//	TestObserver testObserver;
+	//	TestVisitor testVisitor;
+	//	TestMediator testMediator;
+	//	TestChainOfResponsibility testChainOfResponsibility;
+	//	TestTemplateMethord testTemplateMethord;
+	//	TestStrategy TestStrategy;
+	//	TestCommand testCommand;
+	//	TestMomento testMomento;
 	TestState testState;
+}
