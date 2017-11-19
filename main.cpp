@@ -10,6 +10,7 @@
 #include "TestHelper/TestTemplateMethord.h"
 #include "TestHelper/TestStrategy.h"
 #include "TestHelper/TestCommand.h"
+#include "TestHelper/TestMomento.h"
 
 void main() {
 //	TestFactoryMethod testFactoryMethod;
@@ -23,5 +24,6 @@ void main() {
 //	TestChainOfResponsibility testChainOfResponsibility;
 //	TestTemplateMethord testTemplateMethord;
 //	TestStrategy TestStrategy;
-	TestCommand testCommand;
+//	TestCommand testCommand;
+	TestMomento testMomento;
 }
