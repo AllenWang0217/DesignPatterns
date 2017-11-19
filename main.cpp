@@ -1,16 +1,17 @@
-#include "TestHelper/TestFactoryMethod.h"
-#include "TestHelper/TestAbstractFactory.h"
-#include "TestHelper/TestSingleton.h"
-#include "TestHelper/TestBuilder.h"
-#include "TestHelper/TestPrototype.h"
-#include "TestHelper/TestObserver.h"
-#include "TestHelper/TestVisitor.h"
-#include "TestHelper/TestMediator.h"
-#include "TestHelper/TestChainOfResponsibility.h"
-#include "TestHelper/TestTemplateMethord.h"
-#include "TestHelper/TestStrategy.h"
-#include "TestHelper/TestCommand.h"
-#include "TestHelper/TestMomento.h"
+//#include "TestHelper/TestFactoryMethod.h"
+//#include "TestHelper/TestAbstractFactory.h"
+//#include "TestHelper/TestSingleton.h"
+//#include "TestHelper/TestBuilder.h"
+//#include "TestHelper/TestPrototype.h"
+//#include "TestHelper/TestObserver.h"
+//#include "TestHelper/TestVisitor.h"
+//#include "TestHelper/TestMediator.h"
+//#include "TestHelper/TestChainOfResponsibility.h"
+//#include "TestHelper/TestTemplateMethord.h"
+//#include "TestHelper/TestStrategy.h"
+//#include "TestHelper/TestCommand.h"
+//#include "TestHelper/TestMomento.h"
+#include "TestHelper/TestState.h"
 
 void main() {
 //	TestFactoryMethod testFactoryMethod;
@@ -25,5 +26,5 @@ void main() {
 //	TestTemplateMethord testTemplateMethord;
 //	TestStrategy TestStrategy;
 //	TestCommand testCommand;
-	TestMomento testMomento;
-}
+//	TestMomento testMomento;
+	TestState testState;

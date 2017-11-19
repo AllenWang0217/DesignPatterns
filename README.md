@@ -698,3 +698,327 @@ Caretaker(管理者):负责备忘录Memento，不能对Memento的内容进行访
 
 1、需要保存/恢复数据的相关状态场景。 
 2、提供一个可回滚的操作。
+
+## 备忘录模式
+
+**定义**
+
+在不破坏封闭的前提下，捕获一个对象的内部状态，并在该对象之外保存这个状态。这样以后就可将该对象恢复到原先保存的状态。
+
+**参与者**
+
+Originator(发起人)：负责创建一个备忘录Memento，用以记录当前时刻自身的内部状态，并可使用备忘录恢复内部状态。Originator可以根据需要决定Memento存储自己的哪些内部状态。
+
+Memento(备忘录)：负责存储Originator对象的内部状态，并可以防止Originator以外的其他对象访问备忘录。备忘录有两个接口：Caretaker只能看到备忘录的窄接口，他只能将备忘录传递给其他对象。Originator却可看到备忘录的宽接口，允许它访问返回到先前状态所需要的所有数据。
+
+Caretaker(管理者):负责备忘录Memento，不能对Memento的内容进行访问或者操作。
+
+**类图**
+
+![Momento](D:\CodeForC++\DailyLearning\DesignPatterns\DesignPatterns\pic\Momento.PNG)
+
+将Originator声明为Momento的友元类，这样Originator就可访问Momento的私有方法。而CareTaker则不可以，它只是Momento的容器，并不能访问Momento的内部成员。
+
+**优点**
+
+1、给用户提供了一种可以恢复状态的机制，可以使用户能够比较方便地回到某个历史的状态。 
+2、实现了信息的封装，使得用户不需要关心状态的保存细节。
+
+**缺点**
+
+消耗资源。如果类的成员变量过多，势必会占用比较大的资源，而且每一次保存都会消耗一定的内存。
+
+**适用场景**
+
+1、需要保存/恢复数据的相关状态场景。 
+2、提供一个可回滚的操作。
+
+## 状态模式
+
+**定义**
+
+允许一个对象在其内部状态改变时改变它的行为。对象看起来似乎修改了它的类(Allow an object to alter its behavior when its internal state changes. The object will appear to change its class)
+
+**参与者**
+
+上下文环境（Context）：它定义了客户程序需要的接口并维护一个具体状态角色的实例，将与状态相关的操作委托给当前的Concrete State对象来处理。
+抽象状态（State）：定义一个接口以封装使用上下文环境的的一个特定状态相关的行为。
+具体状态（Concrete State）：实现抽象状态定义的接口。
+
+**一个例子**
+
+该模式还是比较难理解的，网上大多都比较简单（要么状态中的方法只有一个，要么下一状态是唯一的）。不利于正真的理解状态模式。网上有一个通过电梯状态来作为例子的[java实现](http://blog.csdn.net/u012401711/article/details/52675873)，讲的还是比较清楚的。本节参考该网页，给出C++的实现。**该例子还是比较复杂的，但如果想深入了解状态模式，还是应该认真看完**
+
+首先，分析一下电梯有哪些特定状态：
+open---按了电梯上下按钮，电梯门开，这就是门敞状态；在这个状态下电梯只能做的动作是关门动作，做别的动作？那就危险喽
+close---电梯门关闭了，在这个状态下，可以进行的动作是：开门（我不想坐电梯了）、停止（忘记按路层号了）、运行
+run---电梯正在跑，上下窜，在这个状态下，电梯只能做的是停止；
+stop---电梯停止不动，在这个状态下，电梯有两个可选动作：继续运行和开门动作；
+
+做成一张状态表：
+
+|       | open | close | run  | stop |
+| ----- | ---- | ----- | ---- | ---- |
+| open  | 0    | 1     | 0    | 0    |
+| close | 1    | 0     | 1    | 1    |
+| run   | 0    | 0     | 0    | 1    |
+| stop  | 1    | 0     | 1    | 0    |
+
+其中1表示可以过渡到下一状态，0表示不可以过度到下一状态。
+
+接着，我们来思考这些状态是由什么动作触发而产生以及在这个状态下电梯还能做什么事情，举个例子来说，电梯在停止状态时，我们来思考两个问题：
+1、这个停止状态时怎么来的，那当然是由于电梯执行了stop 方法而来的；
+2、在停止状态下，电梯还能做什么动作?继续运行？开门？那当然都可以了。
+
+分析其他三个状态，也都是一样的结果，这样我们只要实现电梯在一个状态下的两个任务模型就可以了：
+1、这个状态是如何产生的
+2、这个状态下还能做什么其他动作（也就是这个状态怎么过渡到其他状态）
+
+既然我们以状态为参考模型，那我们就先定义电梯的状态接口，思考过后我们来看类图：
+
+**类图**
+
+![State](D:\CodeForC++\DailyLearning\DesignPatterns\DesignPatterns\pic\State.PNG)
+
+在类图中，定义了一个State抽象类，声明了一个受保护的类型Context变量，这个是串联我们各个状态的封装类，封装的目的很明显，就是电梯对象内部状态的变化不被调用类知晓，也就是迪米特法则了，我的类内部情节你知道越少越好，并且还定义了四个具体的实现类，承担的是状态的产生以及状态间的转换过渡，我们先来看State 程序:
+
+```cpp
+//State.h
+#pragma once
+
+#include "Context.h"
+#include <iostream>
+
+class State {
+public:
+	void setContext(Context* context);
+	Context* getContext();
+	virtual void open() {};
+	virtual void stop() {};
+	virtual void run() {};
+	virtual void close() {};
+private:
+	Context* context;
+};
+```
+
+```cpp
+//State.cpp
+#include "../inc/Context.h"
+#include "../inc/State.h"
+
+void State::setContext(Context* context) {
+	this->context = context;
+}
+Context* State::getContext() { return context; }
+```
+
+抽象类比较简单，我们来先看一个具体的实现，门敞状态的实现类：
+
+```cpp
+//OpeningState.h
+#pragma once
+
+#include "State.h"
+using namespace std;
+
+class OpeningState : public State{
+public:
+	void open() { cout << "opening" << endl; }
+public:
+	//Implement the next possible action, and doing it
+	void close();
+};
+```
+
+```cpp
+//OpeningState.cpp
+#include "../inc/OpeningState.h"
+#include "../inc/ClosingState.h"
+
+void OpeningState::close() {
+	cout << "电梯开了，进完人把门关上: ";
+	getContext()->setState(new ClosingState());
+	getContext()->close();
+}
+```
+
+类中有两个方法:open()和close()。
+
+Openning状态是由open()方法产生的，因此这个方法中有一个具体的业务逻辑；
+
+在Openning状态下，电梯能过渡到其他什么状态呢？按照现在的定义的是只能过渡到Closing状态，因此我们在Close()中定义了状态变更，同时把Close这个动作也委托了给CloseState类下的Close方法执行，这个可能不好理解，我们再看看Context类就可能好理解一点：
+
+```cpp
+//Context.h
+#pragma once
+
+class State;
+
+class Context {
+public:
+	void setState(State* state);
+	State* getState();
+	void open();
+	void stop();
+	void run();
+	void close();
+private:
+	State* state;
+};
+```
+
+```cpp
+//Context.cpp
+#include "../inc/Context.h"
+#include "../inc/State.h"
+
+void Context::setState(State* state) {
+	this->state = state;
+	this->state->setContext(this);
+}
+State* Context::getState() { return state; }
+void Context::open() { state->open(); }
+void Context::stop() { state->stop(); }
+void Context::run() { state->run(); }
+void Context::close() { state->close(); }
+```
+
+结合以上三个类，我们可以这样理解，Context是一个环境角色，它的作用是串联各个状态的过渡，在State抽象类中我们定义了并把这个环境角色聚合进来，并传递到了子类，也就是四个具体的实现类中自己根据环境来决定如何进行状态的过渡。我们把其他的三个具体实现类阅读完毕，下面是关闭状态：
+
+```cpp
+//ClosingState.h
+#pragma once
+
+#include "State.h"
+using namespace std;
+
+class ClosingState : public State {
+public:
+	void close() { cout << "closeing" << endl; }
+public:
+	//Implement the next possible action, and doing it
+	void open();
+	void run();
+	void stopping();
+};
+```
+
+```cpp
+//ClosingState.cpp
+#include "../inc/ClosingState.h"
+#include "../inc/OpeningState.h"
+#include "../inc/RunningState.h"
+#include "../inc/StoppingState.h"
+
+void ClosingState::open() {
+	cout << "电梯关了，再打开 : ";
+	getContext()->setState(new OpeningState());
+	getContext()->open();
+}
+
+void ClosingState::run() {
+	cout << "电梯关了，开始运行: ";
+	getContext()->setState(new RunningState());
+	getContext()->run();
+}
+
+void ClosingState::stopping() {
+	cout << "电梯关了，没按楼层，时间都静止了: ";
+	getContext()->setState(new StoppingState());
+	getContext()->stop();
+}
+```
+
+下面是停止状态：
+
+```cpp
+//Stopping.h
+#pragma once
+
+#include "State.h"
+using namespace std;
+
+class StoppingState : public State {
+public:
+	void stop() { cout << "stopping" << endl; }
+public:
+	//Implement the next possible action, and doing it
+	void open();
+};
+```
+
+```cpp
+//StoppingState.cpp
+#include "../inc/StoppingState.h"
+#include "../inc/OpeningState.h"
+
+void StoppingState::open() {
+	cout << "电梯停了，开门 : ";
+	getContext()->setState(new OpeningState());
+	getContext()->open();
+}
+```
+
+业务逻辑都已经实现了，我们来看看Client 怎么实现：
+
+```cpp
+TestState() {
+	Context* context = new Context();
+	context->setState(new OpeningState());
+	cout << "电梯来了，开门： ";
+	context->open();
+	context->close();
+	context->run();
+	context->stop();
+	context->open();
+}
+```
+
+Client 调用类太简单了，只要定义个电梯的初始状态，然后调用相关的方法，就完成了，完全不用考虑状态的变更，看运行结果：
+
+```
+电梯来了，开门： opening
+电梯开了，进完人把门关上: closeing
+电梯关了，开始运行: running
+到达楼层，停止: stopping
+电梯停了，开门 : opening
+请按任意键继续. . .
+```
+
+它符合开闭原则么?如果在我们这个例子中要增加两个状态，一个是通电状态，一个是断电状态，同时修改其他实现类的相应方法，因为状态要过渡呀，那当然要修改原有的类，只是在原有类中的方法上增加，而不去做修改
+它符合迪米特法则原则么?我们现在呢是各个状态是单独的一个类，只有与这个状态的有关的因素修改了这个类才修改，符合。
+
+**代码中需要注意的点**
+
+1、Context类和State类相互关联，因此需要用到前置声明。不能使用前置声明类的方法，否则会报错（b->funB()的左边必须指向类/结构/联合/泛型类型）
+
+```cpp
+class B;
+class A{
+public:
+  void funA(){b->funB();}
+private:
+  B* b;
+};
+```
+
+2、各类相互依赖，因此最好把类中方法的声明和实现分开，在cpp文件中包含其他状态的头文件。
+
+**优点**
+
+1、封装了转换规则。 
+2、枚举可能的状态，在枚举状态之前需要确定状态种类。 
+3、将所有与某个状态有关的行为放到一个类中，并且可以方便地增加新的状态，只需要改变对象状态即可改变对象的行为。 
+4、允许状态转换逻辑与状态对象合成一体，而不是某一个巨大的条件语句块。 
+5、可以让多个环境对象共享一个状态对象，从而减少系统中对象的个数。
+
+**缺点**
+
+1、状态模式的使用必然会增加系统类和对象的个数。 
+2、状态模式的结构与实现都较为复杂，如果使用不当将导致程序结构和代码的混乱。 
+3、如果需要增加状态类还是比较复杂的，需要在牵连的状态类中做以修改
+
+**适用场景**
+
+代码中包含大量与对象状态有关的条件语句。
