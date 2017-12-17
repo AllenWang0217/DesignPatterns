@@ -11,7 +11,8 @@
 //#include "TestHelper/TestStrategy.h"
 //#include "TestHelper/TestCommand.h"
 //#include "TestHelper/TestMomento.h"
-#include "TestHelper/TestState.h"
+//#include "TestHelper/TestState.h"
+#include "TestHelper/TestAdapter.h"
 
 void main() {
 	//	TestFactoryMethod testFactoryMethod;
@@ -27,5 +28,6 @@ void main() {
 	//	TestStrategy TestStrategy;
 	//	TestCommand testCommand;
 	//	TestMomento testMomento;
-	TestState testState;
+	//  TestState testState;
+	TestAdapter testAdapter;
 }
