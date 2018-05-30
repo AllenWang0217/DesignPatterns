@@ -14,7 +14,8 @@
 //#include "TestHelper/TestState.h"
 //#include "TestHelper/TestAdapter.h"
 //#include "TestHelper/TestBidge.h"
-#include "TestHelper/TestComposite.h"
+//#include "TestHelper/TestComposite.h"
+#include "TestHelper/TestFacade.h"
 
 void main() {
 	//	TestFactoryMethod testFactoryMethod;
@@ -33,5 +34,6 @@ void main() {
 	//  TestState testState;
 	//	TestAdapter testAdapter;
 	//TestBridge testBridge;
-	TestComposite testComposite;
+	//TestComposite testComposite;
+	TestFacade testFacade;
 }
