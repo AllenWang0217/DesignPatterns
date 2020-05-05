@@ -1,12 +1,12 @@
 #pragma once
-#include "IFactorybase.h"
+#include "IFactory.h"
 
-class CFactoryB : public IFactoryBase
+class CFactoryB : public IFactory
 {
 public:
 	CFactoryB(void) {};
 	~CFactoryB(void) {};
 
 public:
-	virtual IProductBase* CreateProduct();
+	virtual IProduct* CreateProduct();
 };

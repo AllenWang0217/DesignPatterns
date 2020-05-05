@@ -1,0 +1,45 @@
+@startuml
+title ObserverPattern
+skinparam backgroundColor MediumTurquoise
+skinparam roundcorner 15
+skinparam sequenceArrowThickness 1.5
+'skinparam handwritten true
+
+class ISubject {
+	+ string getTitle();
+	+ void attach(IObserver* observer);
+	+ void detach(IObserver* observer);
+	+ void changeStatus(STATUS status);
+	+ STATUS getStatus();
+	+ void notify();
+	- string title;
+	- STATUS status;
+	- list<IObserver*> observers;
+}
+note left : void notify() : \nfor all in observer list \ncall observer->updata()
+class Subject{
+	- string title;
+}
+
+class IObserver {
+	+ IObserver(string title) : title(title) {}
+	+ string getTitle();
+	+ void update(ISubject *subject);
+	- string title;
+}
+class Observer1{
+	- string title;
+}
+class Observer2{
+	- string title;
+}
+
+
+ISubject -> "*" IObserver : Notice All Observer\nWhen Changing Status
+ISubject <|-- Subject
+IObserver <|-- Observer1
+IObserver <|-- Observer2
+
+class Control << (C,#FF7700) >>
+Control --> IObserver
+@enduml

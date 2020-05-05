@@ -1,8 +1,8 @@
 #pragma once
 
 #include "../BuilderPattern/Director.h"
-#include "../BuilderPattern/ConcreteBuilder1.h"
-#include "../BuilderPattern/ConcreteBuilder2.h"
+#include "../BuilderPattern/CBuilder1.h"
+#include "../BuilderPattern/CBuilder2.h"
 #include "../BuilderPattern/Product.h"
 
 class TestBuilder
@@ -10,7 +10,7 @@ class TestBuilder
 public:
 	TestBuilder() {
 
-		Builder* builder = new ConcreteBuilder1();
+		IBuilder* builder = new CBuilder1();
 		Director* director = new Director(builder);
 		director->Construct();
 		Product* product = builder->getProduct();
@@ -19,7 +19,7 @@ public:
 		}
 		product->display();
 
-		builder = new ConcreteBuilder2();
+		builder = new CBuilder2();
 		director->setBuilder(builder);
 		director->Construct();
 		product = builder->getProduct();

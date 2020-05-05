@@ -1,0 +1,37 @@
+@startuml
+title FactoryMethodPattern
+skinparam backgroundColor MediumTurquoise
+skinparam roundcorner 15
+skinparam sequenceArrowThickness 1.5
+'skinparam handwritten true
+
+abstract class IFactory{
+    # {abstract} IProduct* CreateProduct()
+}
+abstract class IProduct{
+    # {abstract} void SetProductInfo()
+}
+class CFactoryA{
+    + IProduct* CreateProduct()
+}
+class CFactoryB
+{
+    + IProduct* CreateProduct()
+}
+class CProductA{
+    void SetProductInfo()
+}
+class CProductB{
+    void SetProductInfo()
+}
+
+IFactory -> IProduct : Creat IProduct
+IFactory <|-- CFactoryA
+IFactory <|-- CFactoryB
+IProduct <|-- CProductA
+IProduct <|-- CProductB
+
+class Control << (C,#FF7700) >>
+Control --> IFactory : Use Factory To Creat Product
+
+@enduml

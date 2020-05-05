@@ -2,16 +2,16 @@
 
 #include "Product.h"
 
-class Builder
+class IBuilder
 {
 public:
-	Builder() {};
-	virtual ~Builder() {};
+    IBuilder() {};
+	virtual ~IBuilder() {};
 	virtual void buildPartA() = 0;
 	virtual void buildPartB() = 0;
 	virtual void buildPartC() = 0;
-	virtual void showPruduct() = 0;
-	virtual Product* getProduct() = 0;
+    void showPruduct() { product.display(); }
+    Product* getProduct() { return &product; };
 protected:
 	Product product;
 };

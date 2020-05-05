@@ -1,18 +1,16 @@
 #pragma once
 
-#include "Builder.h"
+#include "IBuilder.h"
 #include <iostream>
 
 using namespace std;
 
-class ConcreteBuilder1 :public Builder
+class CBuilder1 :public IBuilder
 {
 public:
-	ConcreteBuilder1() {};
-	~ConcreteBuilder1() {};
+    CBuilder1() {};
+	~CBuilder1() {};
 	void buildPartA() { product.setProductPartA("ConcreteBuilder1 builded part A\n"); };
 	void buildPartB() { product.setProductPartB("ConcreteBuilder1 builded part B\n"); };
 	void buildPartC() { product.setProductPartC("ConcreteBuilder1 builded part C\n"); };
-	void showPruduct() { product.display(); }
-	Product* getProduct() { return &product; };
 };

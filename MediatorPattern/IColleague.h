@@ -1,7 +1,7 @@
 #pragma once
 class Mediator;
 
-class AbstractColleague {
+class IColleague {
 public:
 	int getNumber() {
 		return number;

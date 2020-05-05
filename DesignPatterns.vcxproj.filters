@@ -1,0 +1,390 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="AbstractFactoryPattern\src\CFactory1.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="AbstractFactoryPattern\src\CFactory2.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="FactoryMethodPattern\src\CFactoryA.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="FactoryMethodPattern\src\CFactoryB.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ObserverPattern\src\IObserver.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ObserverPattern\src\ISubject.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="StatePattern\src\ClosingState.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="StatePattern\src\Context.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="StatePattern\src\OpeningState.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="StatePattern\src\RunningState.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="StatePattern\src\State.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="StatePattern\src\StoppingState.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MediatorPattern\IColleague.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AbstractFactoryPattern\inc\CFactory1.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="AbstractFactoryPattern\inc\CFactory2.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="AbstractFactoryPattern\inc\CProductA1.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="AbstractFactoryPattern\inc\CProductA2.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="AbstractFactoryPattern\inc\CProductB1.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="AbstractFactoryPattern\inc\CProductB2.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="AbstractFactoryPattern\inc\IFactory.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="AbstractFactoryPattern\inc\IProductA.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="AbstractFactoryPattern\inc\IProductB.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="BuilderPattern\Director.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="BuilderPattern\Product.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ChainOfResponsibilityPattern\ContreteHandler1.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ChainOfResponsibilityPattern\ContreteHandler2.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ChainOfResponsibilityPattern\ContreteHandler3.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ChainOfResponsibilityPattern\IHandler.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CommandPattern\UndoRedo\CommandManager.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CommandPattern\Command.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CommandPattern\ConcreteCommand1.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CommandPattern\ConcreteCommand2.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CommandPattern\Invoker.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CommandPattern\Receiver.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="FactoryMethodPattern\inc\CFactoryA.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="FactoryMethodPattern\inc\CFactoryB.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="FactoryMethodPattern\inc\CProductA.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="FactoryMethodPattern\inc\CProductB.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MediatorPattern\ColleagueA.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MediatorPattern\ColleagueB.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MediatorPattern\Mediator.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MomentoPattern\Caretaker.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MomentoPattern\Momento.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MomentoPattern\Originator.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ObserverPattern\inc\IObserver.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ObserverPattern\inc\ISubject.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ObserverPattern\inc\Observer1.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ObserverPattern\inc\Observer2.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ObserverPattern\inc\Subject.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="PrototypePattern\Prototype.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SingletonPattern\Singleton.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="StatePattern\inc\ClosingState.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="StatePattern\inc\Context.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="StatePattern\inc\OpeningState.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="StatePattern\inc\RunningState.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="StatePattern\inc\State.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="StatePattern\inc\StoppingState.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="StrategyPattern\ConcreteStrategy1.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="StrategyPattern\ConcreteStrategy2.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="StrategyPattern\Context.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="StrategyPattern\Strategy.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TemplateMethodPattern\AbstractClass.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TemplateMethodPattern\ConcreteClass1.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TemplateMethodPattern\ConcreteClass2.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TestHelper\TestAbstractFactory.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TestHelper\TestBuilder.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TestHelper\TestChainOfResponsibility.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TestHelper\TestCommand.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TestHelper\TestFactoryMethod.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TestHelper\TestMediator.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TestHelper\TestMomento.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TestHelper\TestObserver.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TestHelper\TestPrototype.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TestHelper\TestSingleton.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TestHelper\TestState.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TestHelper\TestStrategy.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TestHelper\TestTemplateMethord.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TestHelper\TestVisitor.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="VisitorPattern\Element1.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="VisitorPattern\Element2.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="VisitorPattern\Element3.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="VisitorPattern\IElement.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="VisitorPattern\IVisitor.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="VisitorPattern\ObjectStruct.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="VisitorPattern\Visitor1.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="VisitorPattern\Visitor2.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="AdapterPattern\Target.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="AdapterPattern\Adaptee.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="AdapterPattern\ClassModeAdapter.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="AdapterPattern\ObjectModeAdapter.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TestHelper\TestAdapter.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="BridgePattern\Shape.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="BridgePattern\Color.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="BridgePattern\Square.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="BridgePattern\Circle.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="BridgePattern\Red.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="BridgePattern\Blue.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TestHelper\TestBidge.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="BridgePattern\Original\Implementor.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="BridgePattern\Original\Abstractor.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="BridgePattern\Original\RefinedAbstraction1.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="BridgePattern\Original\RefinedAbstraction2.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="BridgePattern\Original\ConcreteImplementor1.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="BridgePattern\Original\ConcreteImplementor2.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ConpositePattern\Component.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ConpositePattern\Leaf.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ConpositePattern\Composite.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TestHelper\TestComposite.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="FacadePattern\Facade.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="FacadePattern\SubSystemOne.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="FacadePattern\SubSystemTwo.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="FacadePattern\SubSystemThree.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="FacadePattern\SubSystemFour.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TestHelper\TestFacade.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="FactoryMethodPattern\inc\IFactory.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="FactoryMethodPattern\inc\IProduct.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="BuilderPattern\IBuilder.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="BuilderPattern\CBuilder1.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="BuilderPattern\CBuilder2.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="PrototypePattern\CPrototype1.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="PrototypePattern\CPrototype2.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MediatorPattern\IColleague.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

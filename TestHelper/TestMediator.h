@@ -1,5 +1,4 @@
 #pragma once
-#include "../MediatorPattern/AbstractColleague.h"
 #include "../MediatorPattern/ColleagueA.h"
 #include "../MediatorPattern/ColleagueB.h"
 #include "../MediatorPattern/Mediator.h"

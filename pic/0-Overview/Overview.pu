@@ -1,0 +1,27 @@
+@startsalt
+{#
+范围      |  创建型 | 结构型  | 行为型 
+对象创建  |{Factory Method（工厂方法）
+            Abstract Factory（抽象工厂）
+            Singleton（单例）
+            Builder（建造者）
+            Prototype（原型）}|{}|{} 
+接口适配  |{}| {Adapter（适配器）
+                Bridge（桥接）
+                Façade（外观)}|{}
+对象去耦    |{}|{}|{Mediator（中介者）
+                   Observer（观察者）}
+抽象集合    |{}| Composite（组合）| Iterator（迭代器）
+行为扩展    |{}| Decorator（装饰）| {Visitor（访问者）
+                                    Chain of Responsibility（职责链）}
+算法封装    |{}|{}| {Template Method（模板方法）
+                    Strategy（策略）
+                    Command（命令）}
+性能与对象访问 |{}| {Flyweight（享元）
+                    Proxy（代理）}|{}
+对象状态    |{}|{}| {Memento（备忘录）
+                    State（状态）}
+其它      |{}|{}| Interpreter（解释器）
+  
+}
+@endsalt

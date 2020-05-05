@@ -1,0 +1,34 @@
+@startuml
+title PrototypePattern
+skinparam backgroundColor MediumTurquoise
+skinparam roundcorner 15
+skinparam sequenceArrowThickness 1.5
+'skinparam handwritten true
+
+abstract class Prototype{
+	+ {abstract}  Prototype * clone()
+}
+class CPrototype1
+{
+	+ void setCounter(int a)
+	+ void showCounter() 
+	+ CPrototype1(const CPrototype1 & rhs) // 拷贝构造函数
+	+ CPrototype1 * clone() // 复制自身
+	- int m_counter;
+}
+class CPrototype2
+{
+	+ void setPhrase(string phrase)
+	+ void showPhrase() 
+	+ CPrototype1(const CPrototype1 & rhs) // 拷贝构造函数
+	+ CPrototype1 * clone() // 复制自身
+	- string phrase;
+}
+
+Prototype <|-- CPrototype1
+Prototype <|-- CPrototype2
+
+class Control << (C,#FF7700) >>
+Control -> Prototype : Use Prototype To \nCreate Same Copy
+
+@enduml

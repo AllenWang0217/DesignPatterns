@@ -1,0 +1,278 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{98F3E054-92D7-4535-84E4-345FD40E4B47}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>DesignPatterns</RootNamespace>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="AbstractFactoryPattern\src\CFactory1.cpp" />
+    <ClCompile Include="AbstractFactoryPattern\src\CFactory2.cpp" />
+    <ClCompile Include="FactoryMethodPattern\src\CFactoryA.cpp" />
+    <ClCompile Include="FactoryMethodPattern\src\CFactoryB.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="MediatorPattern\IColleague.cpp" />
+    <ClCompile Include="ObserverPattern\src\IObserver.cpp" />
+    <ClCompile Include="ObserverPattern\src\ISubject.cpp" />
+    <ClCompile Include="StatePattern\src\ClosingState.cpp" />
+    <ClCompile Include="StatePattern\src\Context.cpp" />
+    <ClCompile Include="StatePattern\src\OpeningState.cpp" />
+    <ClCompile Include="StatePattern\src\RunningState.cpp" />
+    <ClCompile Include="StatePattern\src\State.cpp" />
+    <ClCompile Include="StatePattern\src\StoppingState.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AbstractFactoryPattern\inc\CFactory1.h" />
+    <ClInclude Include="AbstractFactoryPattern\inc\CFactory2.h" />
+    <ClInclude Include="AbstractFactoryPattern\inc\CProductA1.h" />
+    <ClInclude Include="AbstractFactoryPattern\inc\CProductA2.h" />
+    <ClInclude Include="AbstractFactoryPattern\inc\CProductB1.h" />
+    <ClInclude Include="AbstractFactoryPattern\inc\CProductB2.h" />
+    <ClInclude Include="AbstractFactoryPattern\inc\IFactory.h" />
+    <ClInclude Include="AbstractFactoryPattern\inc\IProductA.h" />
+    <ClInclude Include="AbstractFactoryPattern\inc\IProductB.h" />
+    <ClInclude Include="AdapterPattern\Adaptee.h" />
+    <ClInclude Include="AdapterPattern\ClassModeAdapter.h" />
+    <ClInclude Include="AdapterPattern\ObjectModeAdapter.h" />
+    <ClInclude Include="AdapterPattern\Target.h" />
+    <ClInclude Include="BridgePattern\Blue.h" />
+    <ClInclude Include="BridgePattern\Circle.h" />
+    <ClInclude Include="BridgePattern\Color.h" />
+    <ClInclude Include="BridgePattern\Original\Abstractor.h" />
+    <ClInclude Include="BridgePattern\Original\ConcreteImplementor1.h" />
+    <ClInclude Include="BridgePattern\Original\ConcreteImplementor2.h" />
+    <ClInclude Include="BridgePattern\Original\Implementor.h" />
+    <ClInclude Include="BridgePattern\Original\RefinedAbstraction1.h" />
+    <ClInclude Include="BridgePattern\Original\RefinedAbstraction2.h" />
+    <ClInclude Include="BridgePattern\Red.h" />
+    <ClInclude Include="BridgePattern\Shape.h" />
+    <ClInclude Include="BridgePattern\Square.h" />
+    <ClInclude Include="BuilderPattern\IBuilder.h" />
+    <ClInclude Include="BuilderPattern\CBuilder1.h" />
+    <ClInclude Include="BuilderPattern\CBuilder2.h" />
+    <ClInclude Include="BuilderPattern\Director.h" />
+    <ClInclude Include="BuilderPattern\Product.h" />
+    <ClInclude Include="ChainOfResponsibilityPattern\ContreteHandler1.h" />
+    <ClInclude Include="ChainOfResponsibilityPattern\ContreteHandler2.h" />
+    <ClInclude Include="ChainOfResponsibilityPattern\ContreteHandler3.h" />
+    <ClInclude Include="ChainOfResponsibilityPattern\IHandler.h" />
+    <ClInclude Include="CommandPattern\Command.h" />
+    <ClInclude Include="CommandPattern\ConcreteCommand1.h" />
+    <ClInclude Include="CommandPattern\ConcreteCommand2.h" />
+    <ClInclude Include="CommandPattern\Invoker.h" />
+    <ClInclude Include="CommandPattern\Receiver.h" />
+    <ClInclude Include="CommandPattern\UndoRedo\CommandManager.h" />
+    <ClInclude Include="ConpositePattern\Component.h" />
+    <ClInclude Include="ConpositePattern\Composite.h" />
+    <ClInclude Include="ConpositePattern\Leaf.h" />
+    <ClInclude Include="FacadePattern\Facade.h" />
+    <ClInclude Include="FacadePattern\SubSystemFour.h" />
+    <ClInclude Include="FacadePattern\SubSystemOne.h" />
+    <ClInclude Include="FacadePattern\SubSystemThree.h" />
+    <ClInclude Include="FacadePattern\SubSystemTwo.h" />
+    <ClInclude Include="FactoryMethodPattern\inc\CFactoryA.h" />
+    <ClInclude Include="FactoryMethodPattern\inc\CFactoryB.h" />
+    <ClInclude Include="FactoryMethodPattern\inc\CProductA.h" />
+    <ClInclude Include="FactoryMethodPattern\inc\CProductB.h" />
+    <ClInclude Include="FactoryMethodPattern\inc\IFactory.h" />
+    <ClInclude Include="FactoryMethodPattern\inc\IProduct.h" />
+    <ClInclude Include="MediatorPattern\IColleague.h" />
+    <ClInclude Include="MediatorPattern\ColleagueA.h" />
+    <ClInclude Include="MediatorPattern\ColleagueB.h" />
+    <ClInclude Include="MediatorPattern\Mediator.h" />
+    <ClInclude Include="MomentoPattern\Caretaker.h" />
+    <ClInclude Include="MomentoPattern\Momento.h" />
+    <ClInclude Include="MomentoPattern\Originator.h" />
+    <ClInclude Include="ObserverPattern\inc\IObserver.h" />
+    <ClInclude Include="ObserverPattern\inc\ISubject.h" />
+    <ClInclude Include="ObserverPattern\inc\Observer1.h" />
+    <ClInclude Include="ObserverPattern\inc\Observer2.h" />
+    <ClInclude Include="ObserverPattern\inc\Subject.h" />
+    <ClInclude Include="PrototypePattern\CPrototype1.h" />
+    <ClInclude Include="PrototypePattern\CPrototype2.h" />
+    <ClInclude Include="PrototypePattern\Prototype.h" />
+    <ClInclude Include="SingletonPattern\Singleton.h" />
+    <ClInclude Include="StatePattern\inc\ClosingState.h" />
+    <ClInclude Include="StatePattern\inc\Context.h" />
+    <ClInclude Include="StatePattern\inc\OpeningState.h" />
+    <ClInclude Include="StatePattern\inc\RunningState.h" />
+    <ClInclude Include="StatePattern\inc\State.h" />
+    <ClInclude Include="StatePattern\inc\StoppingState.h" />
+    <ClInclude Include="StrategyPattern\ConcreteStrategy1.h" />
+    <ClInclude Include="StrategyPattern\ConcreteStrategy2.h" />
+    <ClInclude Include="StrategyPattern\Context.h" />
+    <ClInclude Include="StrategyPattern\Strategy.h" />
+    <ClInclude Include="TemplateMethodPattern\AbstractClass.h" />
+    <ClInclude Include="TemplateMethodPattern\ConcreteClass1.h" />
+    <ClInclude Include="TemplateMethodPattern\ConcreteClass2.h" />
+    <ClInclude Include="TestHelper\TestAbstractFactory.h" />
+    <ClInclude Include="TestHelper\TestAdapter.h" />
+    <ClInclude Include="TestHelper\TestBidge.h" />
+    <ClInclude Include="TestHelper\TestBuilder.h" />
+    <ClInclude Include="TestHelper\TestChainOfResponsibility.h" />
+    <ClInclude Include="TestHelper\TestCommand.h" />
+    <ClInclude Include="TestHelper\TestComposite.h" />
+    <ClInclude Include="TestHelper\TestFacade.h" />
+    <ClInclude Include="TestHelper\TestFactoryMethod.h" />
+    <ClInclude Include="TestHelper\TestMediator.h" />
+    <ClInclude Include="TestHelper\TestMomento.h" />
+    <ClInclude Include="TestHelper\TestObserver.h" />
+    <ClInclude Include="TestHelper\TestPrototype.h" />
+    <ClInclude Include="TestHelper\TestSingleton.h" />
+    <ClInclude Include="TestHelper\TestState.h" />
+    <ClInclude Include="TestHelper\TestStrategy.h" />
+    <ClInclude Include="TestHelper\TestTemplateMethord.h" />
+    <ClInclude Include="TestHelper\TestVisitor.h" />
+    <ClInclude Include="VisitorPattern\Element1.h" />
+    <ClInclude Include="VisitorPattern\Element2.h" />
+    <ClInclude Include="VisitorPattern\Element3.h" />
+    <ClInclude Include="VisitorPattern\IElement.h" />
+    <ClInclude Include="VisitorPattern\IVisitor.h" />
+    <ClInclude Include="VisitorPattern\ObjectStruct.h" />
+    <ClInclude Include="VisitorPattern\Visitor1.h" />
+    <ClInclude Include="VisitorPattern\Visitor2.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

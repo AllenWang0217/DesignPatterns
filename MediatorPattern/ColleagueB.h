@@ -1,4 +1,4 @@
 #pragma once
-#include "AbstractColleague.h"
+#include "IColleague.h"
 
-class ColleagueB : public AbstractColleague {};
+class ColleagueB : public IColleague {};

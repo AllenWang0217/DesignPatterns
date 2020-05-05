@@ -1,0 +1,53 @@
+@startuml
+title AbstractFactoryPattern
+skinparam backgroundColor MediumTurquoise
+skinparam roundcorner 15
+skinparam sequenceArrowThickness 1.5
+'skinparam handwritten true
+
+abstract class IFactory{
+    # {abstract} IProductA* CreateProductA()
+    # {abstract} IProductB* CreateProductB()
+}
+abstract class IProductA{
+    # {abstract} void SetProductInfo()
+}
+abstract class IProductB{
+    # {abstract} void SetProductInfo()
+}
+class CFactory1{
+    + IProductA* CreateProductA()
+    + IProductB* CreateProductB()
+}
+note bottom : CFactory1 Creat Concrete\nCProductA1 and CProductB1
+class CFactory2{
+    + IProductA* CreateProductA()
+    + IProductB* CreateProductB()
+}
+note bottom : CFactory2 Creat Concrete\nCProductA2 and CProductB2
+class CProductA1{
+    void SetProductInfo()
+}
+class CProductA2{
+    void SetProductInfo()
+}
+class CProductB1{
+    void SetProductInfo()
+}
+class CProductB2{
+    void SetProductInfo()
+}
+
+IFactory -> IProductA : Creat IProductA
+IProductB <- IFactory : Creat IProductB
+IFactory <|-- CFactory1
+IFactory <|-- CFactory2
+IProductA <|-- CProductA1
+IProductA <|-- CProductA2
+IProductB <|-- CProductB1
+IProductB <|-- CProductB2
+
+class Control << (C,#FF7700) >>
+Control --> IFactory : Use Factory To Creat Product Cluster
+
+@enduml

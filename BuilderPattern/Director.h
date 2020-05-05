@@ -1,13 +1,13 @@
 #pragma once
 
-#include "Builder.h"
+#include "IBuilder.h"
 
 class Director
 {
 public:
-	Director(Builder* builder) { this->builder = builder; }
+	Director(IBuilder* builder) { this->builder = builder; }
 	~Director() {};
-	void setBuilder(Builder* builder) { this->builder = builder; }
+	void setBuilder(IBuilder* builder) { this->builder = builder; }
 	void Construct()
 	{
 		builder->buildPartA();
@@ -15,5 +15,5 @@ public:
 		builder->buildPartC();
 	}
 private:
-	Builder* builder;
+    IBuilder* builder;
 };

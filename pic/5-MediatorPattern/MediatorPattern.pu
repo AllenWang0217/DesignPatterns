@@ -1,0 +1,31 @@
+@startuml
+title MediatorPattern
+skinparam backgroundColor MediumTurquoise
+skinparam roundcorner 15
+skinparam sequenceArrowThickness 1.5
+'skinparam handwritten true
+
+class IColleague {
+	+ int getNumber()
+	+ void setNumber(int number)
+	+ void changeNumber(int number, Mediator* med);
+	# int number;
+}
+note right: notice mediator \nwhen it changes
+
+class Mediator {
+	+ Mediator(ColleagueA* collA, ColleagueB* collB)
+	+ void affect(int number, AbstractColleague* coll)
+	- ColleagueA* collA;
+	- ColleagueB* collB;
+}
+note bottom: use parameter to judge affect
+
+Mediator <-> "*" IColleague
+IColleague <|-- ColleagueA
+IColleague <|-- ColleagueB
+
+class Control << (C,#FF7700) >>
+Control --> Mediator
+
+@enduml

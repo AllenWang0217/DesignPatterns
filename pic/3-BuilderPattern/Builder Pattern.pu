@@ -1,0 +1,54 @@
+@startuml
+title BuilderPattern
+skinparam backgroundColor MediumTurquoise
+skinparam roundcorner 15
+skinparam sequenceArrowThickness 1.5
+'skinparam handwritten true
+
+class Product
+{
+	+ void setProductPartA(string productPartA)
+	+ void setProductPartB(string productPartB)
+	+ void setProductPartC(string productPartC)
+	+ void display()
+	- string productPartA
+	- string productPartB
+	- string productPartC
+}
+
+abstract class IBuilder{
+	+ {abstract} void buildPartA()
+	+ {abstract} void buildPartB()
+	+ {abstract} void buildPartC()
+	+ void showPruduct()
+	+ Product* getProduct()
+	# Product product;
+}
+class CBuilder1
+{
+	+ void buildPartA()
+	+ void buildPartB()
+	+ void buildPartC()
+}
+class CBuilder2
+{
+	+ void buildPartA()
+	+ void buildPartB()
+	+ void buildPartC()
+}
+class Director
+{
+	+ void setBuilder(IBuilder* builder)
+	+ void Construct()
+    - IBuilder* builder;
+}
+
+Director -> "1" IBuilder
+IBuilder -> "1" Product
+IBuilder <|-- CBuilder1
+IBuilder <|-- CBuilder2
+
+class Control << (C,#FF7700) >>
+Control --> Director : Use Director To Composite Product \nWhich Builder Created
+
+@enduml

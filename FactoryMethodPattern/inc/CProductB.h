@@ -1,8 +1,8 @@
 #pragma once
 
-#include "IProductBase.h"
+#include "IProduct.h"
 
-class CProductB : public IProductBase
+class CProductB : public IProduct
 {
 public:
 	CProductB(void) {};

@@ -1,11 +1,11 @@
 #pragma once
 #include <iostream>
 
-class IProductBase
+class IProduct
 {
 public:
-	IProductBase(void) {};
-	~IProductBase(void) {};
+	IProduct(void) {};
+	~IProduct(void) {};
 
 public:
 	virtual void SetProductInfo() = 0;
