@@ -216,6 +216,11 @@
     <ClInclude Include="FactoryMethodPattern\inc\CProductB.h" />
     <ClInclude Include="FactoryMethodPattern\inc\IFactory.h" />
     <ClInclude Include="FactoryMethodPattern\inc\IProduct.h" />
+    <ClInclude Include="IteratorPattern\Aggregate.h" />
+    <ClInclude Include="IteratorPattern\ConcreteAggregate.h" />
+    <ClInclude Include="IteratorPattern\ConcreteIterator.h" />
+    <ClInclude Include="IteratorPattern\Container.h" />
+    <ClInclude Include="IteratorPattern\Iterator.h" />
     <ClInclude Include="MediatorPattern\IColleague.h" />
     <ClInclude Include="MediatorPattern\ColleagueA.h" />
     <ClInclude Include="MediatorPattern\ColleagueB.h" />
@@ -254,6 +259,7 @@
     <ClInclude Include="TestHelper\TestComposite.h" />
     <ClInclude Include="TestHelper\TestFacade.h" />
     <ClInclude Include="TestHelper\TestFactoryMethod.h" />
+    <ClInclude Include="TestHelper\TestIterator.h" />
     <ClInclude Include="TestHelper\TestMediator.h" />
     <ClInclude Include="TestHelper\TestMomento.h" />
     <ClInclude Include="TestHelper\TestObserver.h" />

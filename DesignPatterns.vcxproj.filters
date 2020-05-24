@@ -386,5 +386,20 @@
     <ClInclude Include="MediatorPattern\IColleague.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="IteratorPattern\Iterator.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="IteratorPattern\ConcreteIterator.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="IteratorPattern\Aggregate.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="IteratorPattern\ConcreteAggregate.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TestHelper\TestIterator.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

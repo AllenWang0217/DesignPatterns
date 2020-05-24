@@ -1,0 +1,42 @@
+@startuml
+title IteratorPattern
+skinparam backgroundColor MediumTurquoise
+skinparam roundcorner 15
+skinparam sequenceArrowThickness 1.5
+'skinparam handwritten true
+
+abstract class Iterator{
+    # {abstract} void begin() = 0;
+    # {abstract} void next() = 0;
+    # {abstract} Iterator<Item>& operator ++ () = 0;
+    # {abstract} Item* operator -> () = 0;
+    # {abstract} bool isEnd() = 0;
+}
+class ConcreteIterator{
+    void begin();
+    void next();
+    Iterator<Item>& operator ++ ();
+    Item* operator -> ();
+    bool isEnd();
+}
+abstract class Aggregate <<Item>>{
+    # {abstract} void push_back(Item item) = 0;
+    # {abstract} Iterator<Item>* createIterator() = 0;
+    # {abstract} Item& operator[](int index) = 0;
+    # {abstract} int size() = 0;
+}
+class ConcreteAggregate <<Item>>{
+    void push_back(Item item);
+    Iterator<Item>* createIterator();
+    Item& operator[](int index);
+    int size();
+}
+
+Aggregate -> Iterator : Creat Iterator
+Aggregate <|-- ConcreteAggregate
+Iterator <|-- ConcreteIterator
+
+class Control << (C,#FF7700) >>
+Control --> Aggregate : Use Iterator To Visit Aggregate
+
+@enduml
