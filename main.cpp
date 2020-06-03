@@ -11,12 +11,12 @@
 //#include "TestHelper/TestStrategy.h"
 //#include "TestHelper/TestCommand.h"
 //#include "TestHelper/TestMomento.h"
-//#include "TestHelper/TestState.h"
+#include "TestHelper/TestState.h"
 //#include "TestHelper/TestAdapter.h"
 //#include "TestHelper/TestBidge.h"
 //#include "TestHelper/TestComposite.h"
 //#include "TestHelper/TestFacade.h"
-#include "TestHelper/TestIterator.h"
+//#include "TestHelper/TestIterator.h"
 
 void main() {
 	//	TestFactoryMethod testFactoryMethod;
@@ -32,10 +32,10 @@ void main() {
 	//	TestStrategy TestStrategy;
 	//	TestCommand testCommand;
 	//	TestMomento testMomento;
-	//  TestState testState;
+	  TestState testState;
 	//	TestAdapter testAdapter;
 	//TestBridge testBridge;
 	//TestComposite testComposite;
 	//TestFacade testFacade;
-    TestIterator testIterator;
+    // TestIterator testIterator;
 }

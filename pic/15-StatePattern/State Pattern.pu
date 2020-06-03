@@ -1,0 +1,63 @@
+@startuml
+title StatePattern
+skinparam backgroundColor MediumTurquoise
+skinparam roundcorner 15
+skinparam sequenceArrowThickness 1.5
+'skinparam handwritten true
+
+class Context {
+	+ void setState(State* state);
+	+ State* getState();
+	+ void open();
+	+ void stop();
+	+ void run();
+	+ void close();
+	- State* state;
+}
+note left : do state's func
+
+abstract class State {
+	+ void setContext(Context* context);
+	+ Context* getContext()
+    + virtual void open()
+	+ virtual void stop()
+	+ virtual void run()
+	+ virtual void close()
+	- Context* context;
+}
+
+class ClosingState {
+	--
+	+ void close()
+	== next possible action ==
+	+ void open()
+	+ void run()
+	+ void stopping()
+}
+class OpeningState {
+	--
+	+ void open()
+	== next possible action ==
+	+ void close()
+}
+class RunningState {
+	--
+	+ void run()
+	== next possible action ==
+	+ void stop()
+}
+class StoppingState {
+	--
+	+ void stop()
+	== next possible action ==
+	+ void open()
+}
+Context <-> State
+State <|-- ClosingState
+State <|-- OpeningState
+State <|-- RunningState
+State <|-- StoppingState
+
+class Control << (C,#FF7700) >>
+Control --> Context
+@enduml

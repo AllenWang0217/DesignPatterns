@@ -5,14 +5,14 @@ using namespace std;
 
 class ObjectStruct {
 public:
-	void attach(IElement* elem) { objStr.push_back(elem); }
+	void attach(IElement* elem) { elems.push_back(elem); }
 
-	void detach(IElement* elem) { objStr.remove(elem); }
+	void detach(IElement* elem) { elems.remove(elem); }
 
 	virtual void accept(IVisitor* visitor) {
-		for(std::list<IElement*>::iterator it = objStr.begin(); it != objStr.end(); ++it)
+		for(std::list<IElement*>::iterator it = elems.begin(); it != elems.end(); ++it)
 			(*it)->accept(visitor);
 	};
 private:
-	list<IElement* > objStr;
+	list<IElement* > elems;
 };

@@ -1,0 +1,33 @@
+@startuml
+title TemplateMethodPattern
+skinparam backgroundColor MediumTurquoise
+skinparam roundcorner 15
+skinparam sequenceArrowThickness 1.5
+'skinparam handwritten true
+
+abstract class AbstractClass {
+	+ void Algorithm()
+	# {abstract}  void step1() = 0;
+	# {abstract}  void step2() = 0;
+	# {abstract}  void step3() = 0;
+}
+note right : Algorithm use: \nstep1->step2->step3
+
+class ConcreteClass1 {
+	- void step1()
+	- void step2()
+	- void step3()
+}
+
+class ConcreteClass2 {
+	- void step1()
+	- void step2()
+	- void step3()
+}
+
+AbstractClass <|-- ConcreteClass1
+AbstractClass <|-- ConcreteClass2
+
+class Control << (C,#FF7700) >>
+Control -> AbstractClass
+@enduml

@@ -1,0 +1,36 @@
+@startuml
+title MomentoPattern
+skinparam backgroundColor MediumTurquoise
+skinparam roundcorner 15
+skinparam sequenceArrowThickness 1.5
+'skinparam handwritten true
+
+class Momento {
+	- Momento(string status) :status(status) {};
+	- string getStatus() { return status; }
+	- string status;
+	friend class Originator;
+}
+note right : all private,\nbut let Originator be friend class
+
+class Originator {
+	+ Momento *createMomento()
+	+ void restoreFromMomento(Momento* memonto)
+	+ void setStatus(string status)
+	+ void showStatus()
+	-string status;
+}
+note bottom : create a momento,\ngive it to CareTaker to save
+
+class CareTaker {
+	+ void saveMomento(Momento* momento)
+	+ Momento* retriveMomento()
+	- Momento* momento;
+}
+
+Originator -> Momento
+Momento <--o CareTaker
+
+class Control << (C,#FF7700) >>
+Control --> Originator
+@enduml

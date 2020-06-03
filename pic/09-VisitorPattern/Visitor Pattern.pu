@@ -1,0 +1,69 @@
+@startuml
+title VisitorPattern
+skinparam backgroundColor MediumTurquoise
+skinparam roundcorner 15
+skinparam sequenceArrowThickness 1.5
+'skinparam handwritten true
+
+abstract class IElement {
+	+ {abstract}  void doSomething() = 0;
+	+ {abstract}  void doOtherthing() = 0;
+	+ void accept(IVisitor* visitor);
+}
+note left : void accept() : \nvisitor->visit(this)
+
+class Element1{
+	+ void doSomething();
+	+ void doOtherthing();
+	- string attribute1;
+	- string attribute2;
+}
+class Element2{
+	+ void doSomething();
+	+ void doOtherthing();
+	- string attribute3;
+	- string attribute4;
+}
+class Element3{
+	+ void doSomething();
+	+ void doOtherthing();
+	- string attribute5;
+	- string attribute6;
+}
+IElement <|-- Element1
+IElement <|-- Element2
+IElement <|-- Element3
+
+abstract class IVisitor {
+	+ {abstract} void visit(IElement* element) = 0;
+}
+
+class Visitor1 {
+	virtual void visit(IElement* element);
+}
+note bottom : void visit() : \nelement->doSomething()
+
+class Visitor2 {
+	virtual void visit(IElement* element);
+}
+note bottom : void visit() : \nelement->doOtherthing()
+
+IVisitor <|-- Visitor1
+IVisitor <|-- Visitor2
+
+IElement <->  IVisitor : element accept visitor \nto visit itself
+
+class ObjectStruct {
+	+ void attach(IElement* elem);
+	+ void detach(IElement* elem);
+	+ void accept(IVisitor* visitor);
+	- list<IElement*> elems;
+}
+note right : void accept(IVisitor* visitor) : \naccept visitor to visit all element 
+
+ObjectStruct o--> "many" IElement : element aggregation
+ObjectStruct --> IVisitor : accept visitor
+
+class Control << (C,#FF7700) >>
+Control -> ObjectStruct
+@enduml

@@ -37,7 +37,7 @@
 
 **类图**
 
-![FactoryMethodPattern](pic\1-FactoryMethodPattern\Factory Method Pattern\FactoryMethodPattern.png)
+![FactoryMethodPattern](pic\01-FactoryMethodPattern\Factory Method Pattern\FactoryMethodPattern.png)
 
 **工厂方法模式的优点**
 在工厂方法模式中，工厂方法用来创建客户所需要的产品，同时还向客户隐藏了哪种具体产品类将被实例化这一细节，用户只需要关心所需产品对应的工厂，无须关心创建细节，甚至无须知道具体产品类的类名。
@@ -82,7 +82,7 @@
 **产品族**：在抽象工厂模式中，产品族是指由同一个工厂生产的，位于不同产品等级结构中的一组产品，如LG工厂生产的LG显示器、LG主机，LG显示器位于显示器产品等级结构中，LG主机位于主机等级结构中。LG的显示器加主机就构成了一台纯LG电脑。当然，按照工厂不同，也可以进行混搭。
 产品族与产品等级结构示意图
 
-![产品等级结构与产品族示意图如](D:\CodeForC++\DailyLearning\DesignPatterns\DesignPatterns\pic\2-AbstractFactoryPattern\产品等级结构与产品族示意图如.jpg)
+![产品等级结构与产品族示意图如](pic\02-AbstractFactoryPattern\产品等级结构与产品族示意图如.jpg)
 
 **参与者**
 
@@ -93,7 +93,7 @@
 
 **类图**
 
-![AbstractFactoryPattern](pic/2-AbstractFactoryPattern\Abstract Factory Pattern\AbstractFactoryPattern.PNG)
+![AbstractFactoryPattern](pic/02-AbstractFactoryPattern\Abstract Factory Pattern\AbstractFactoryPattern.PNG)
 
 **抽象工厂模式的优点**
 抽象工厂模式隔离了具体类的生成，使得客户并不需要知道什么被创建。由于这种隔离，更换一个具体工厂就变得相对容易。所有的具体工厂都实现了抽象工厂中定义的那些公共接口，因此只需改变具体工厂的实例，就可以在某种程度上改变整个软件系统的行为。另外，应用抽象工厂模式可以实现高内聚低耦合的设计目的，因此抽象工厂模式得到了广泛的应用。
@@ -197,7 +197,7 @@ Director导演类，负责安排已有模块的顺序，然后告诉建造者开
 
 **类图**
 
-![BuilderPattern](pic\3-BuilderPattern\Builder Pattern\BuilderPattern.png)
+![BuilderPattern](pic\04-BuilderPattern\Builder Pattern\BuilderPattern.png)
 
 **优点**
 
@@ -242,7 +242,7 @@ Director导演类，负责安排已有模块的顺序，然后告诉建造者开
 
 **类图**
 
-![PrototypePattern](pic\4-PrototypePattern\Prototype Pattern\PrototypePattern.png)
+![PrototypePattern](pic\05-PrototypePattern\Prototype Pattern\PrototypePattern.png)
 
 由于克隆需要一个原型，而上面的类图中`Prototype`就这个原型，`Prototype`定义了克隆自身的`clone`接口，由派生类进行实现，而实现原型模式的重点就在于这个`clone`接口的实现。`CPrototype1`和`CPrototype2`继承自`Prototype`，并实现`clone`接口，实现克隆自身的操作；同时，在`CPrototype1`和`CPrototype2`中**需要重写默认的复制构造函数**，供`clone`函数调用，`clone`就是通过在内部调用重写的复制构造函数实现的。在后续的编码过程中，如果某个类需要实现`clone`功能，就只需要继承`Prototype`类，然后重写自己的默认复制构造函数就好了。好比在C#中就提供了`ICloneable`接口，当某个类需要实现原型模式时，只需要实现这个接口的道理是一样的。
 
@@ -288,11 +288,11 @@ Director导演类，负责安排已有模块的顺序，然后告诉建造者开
 
  一般来说，同事类之间的关系是比较复杂的，多个同事类之间互相关联时，他们之间的关系会呈现为复杂的网状结构，这是一种过度耦合的架构，即不利于类的复用，也不稳定。例如在下图中，有六个同事类对象，假如对象1发生变化，那么将会有4个对象受到影响。如果对象3发生变化，那么将会有3个对象受到影响。也就是说，同事类之间直接关联的设计是不好的。
 
-![net-like](pic\5-MediatorPattern\net-like.jpg)
+![net-like](pic\06-MediatorPattern\net-like.jpg)
 
 如果引入中介者模式，那么同事类之间的关系将变为星型结构，从图中可以看到，任何一个类的变动，只会影响的类本身，以及中介者，这样就减小了系统的耦合。一个好的设计，必定不会把所有的对象关系处理逻辑封装在本类中，而是使用一个专门的类来管理那些不属于自己的行为。
 
-![star-like](pic\5-MediatorPattern\star-like.jpg)
+![star-like](pic\06-MediatorPattern\star-like.jpg)
 
 ```cpp
 #include <iostream>
@@ -393,7 +393,7 @@ private:
 
 **类图**
 
-![MediatorPattern](pic\5-MediatorPattern\MediatorPattern\MediatorPattern.png)
+![MediatorPattern](pic\06-MediatorPattern\MediatorPattern\MediatorPattern.png)
 
 同事类在做某些改变时会调用中介者的affect方法，通过该方法来影响其他的同事类。而中介者则要判断是哪一个类发生了变化，从而对波及类进行操作。
 
@@ -456,7 +456,7 @@ Subject（具体目标）
 
 **类图**
 
-![ObserverPattern](pic\6-ObserverPattern\Observer Pattern\ObserverPattern.png)
+![ObserverPattern](pic\07-ObserverPattern\Observer Pattern\ObserverPattern.png)
 
 Subject中会存储所有正在观察它的观察者，并提供附着和去附着观察者的操作。当有状态更新时，会调用notify方法。该方法会遍历附着在目标上的观察者，并调用观察者的update方法用以更新目标在观察者中的状态。
 
@@ -499,7 +499,7 @@ ConcreteAggregate: 具体聚合类
 
 **类图**
 
-![ObserverPattern](pic\7-IteratorPattern\Iterator Pattern\IteratorPattern.png)
+![ObserverPattern](pic\08-IteratorPattern\Iterator Pattern\IteratorPattern.png)
 
 **优点**
 
@@ -535,7 +535,7 @@ IElement : 抽象元素。声明哪一个类访问者访问，程序上通过acc
 Element : 具体元素。实现accept方法，visitor.visit(this)基本形成一种模式
 ObjectStrture : 结构对象。元素的一种集合，一般容纳多个元素，不同接口的容器，如list，set，map，在项目中一般很少抽象这个角色
 
-![Visitor](pic\Visitor.PNG)
+![VisitorPattern](pic\09-VisitorPattern\Visitor Pattern\VisitorPattern.png)
 
 ObjectStrture 中的accept方法会遍历成员变量中每一个Element，并将具体的Visitor作为入参，调用Element的accept方法。而这个accept方法又会调用Visiter的visitor方法，对该元素进行具体的操作。
 
@@ -573,9 +573,9 @@ ObjectStrture 中的accept方法会遍历成员变量中每一个Element，并�
 
 **类图**
 
-![ChainOfResponsibilityPattern](pic\ChainOfResponsibilityPattern.PNG)
+![ChainOfResponsibilityPattern](pic\10-ChainOfResponsibilityPattern\Chain of Responsibility Pattern\ChainOfResponsibilityPattern.png)
 
-客户端可通过setNextHandler方法设置Handler的顺序
+客户端可通过setNextHandler方法设置Handler的顺序，最后一定要有空指针结束。
 
 **优点：** 
 
@@ -602,7 +602,7 @@ ObjectStrture 中的accept方法会遍历成员变量中每一个Element，并�
 
 **类图**
 
-![TemplateMethordPattern](pic\TemplateMethordPattern.PNG)
+![TemplateMethodPattern](pic\11-TemplateMethodPattern\Template Method Pattern\TemplateMethodPattern.png)
 
 抽象了中确定算法的实现结构，具体类中实现不同算法步骤。这个在处理同一个问题时有多种算法并希望相互比较时非常管用。比如在态势评估的时候，我们的一般步骤为：点航关联->航航关联->航迹融合。其中每一个环节都可有多种算法。但过程是固定的。此时就可使用模板方法模式。
 
@@ -633,7 +633,7 @@ ObjectStrture 中的accept方法会遍历成员变量中每一个Element，并�
 
 **类图**
 
-![Strategy](pic\Strategy.PNG)
+![StrategyPattern](pic\12-StrategyPattern\Strategy Pattern\StrategyPattern.png)
 
 将算法的逻辑抽象接口（DoAlgorithm）封装到一个类中（Context），再通过委托的方式将具体的算法实现委托给具体的Strategy类来实现（ConcreteStratege类）。从而将算法的实现和调用分离。
 
@@ -685,7 +685,7 @@ Why？命令模式应用的场景就是将命令的调用者和接收者解耦�
 
 **类图**
 
-![CommandPattern](pic\CommandPattern.PNG)
+![CommandPattern](pic\13-CommandPattern\Command Pattern\CommandPattern.png)
 
 CommandManager类是Invoker类的一个变种，它实现了重做（redo）和撤销（undo）操作。
 
@@ -718,13 +718,15 @@ CommandManager类是Invoker类的一个变种，它实现了重做（redo）和�
 
 Originator(发起人)：负责创建一个备忘录Memento，用以记录当前时刻自身的内部状态，并可使用备忘录恢复内部状态。Originator可以根据需要决定Memento存储自己的哪些内部状态。
 
-Memento(备忘录)：负责存储Originator对象的内部状态，并可以防止Originator以外的其他对象访问备忘录。备忘录有两个接口：Caretaker只能看到备忘录的窄接口，他只能将备忘录传递给其他对象。Originator却可看到备忘录的宽接口，允许它访问返回到先前状态所需要的所有数据。
+Memento(备忘录)：负责存储Originator对象的内部状态，并可以防止Originator以外的其他对象访问备忘录。
 
-Caretaker(管理者):负责备忘录Memento，不能对Memento的内容进行访问或者操作。
+备忘录有两个接口：Caretaker只能看到备忘录的窄接口，他只能将备忘录传递给其他对象。Originator却可看到备忘录的宽接口，允许它访问返回到先前状态所需要的所有数据。
+
+Caretaker(管理者):负责存储备忘录，不能对Memento的内容进行访问或者操作。它可以存储一个或多个备忘录，当Originator需要的时候便从Caretaker获取备忘录
 
 **类图**
 
-![Momento](pic\Momento.PNG)
+![MomentoPattern](pic\14-MomentoPattern\Momento Pattern\MomentoPattern.png)
 
 将Originator声明为Momento的友元类，这样Originator就可访问Momento的私有方法。而CareTaker则不可以，它只是Momento的容器，并不能访问Momento的内部成员。
 
@@ -787,9 +789,9 @@ stop---电梯停止不动，在这个状态下，电梯有两个可选动作：�
 
 **类图**
 
-![State](pic\State.PNG)
+![StatePattern](pic\15-StatePattern\State Pattern\StatePattern.png)
 
-在类图中，定义了一个State抽象类，声明了一个受保护的类型Context变量，这个是串联我们各个状态的封装类，封装的目的很明显，就是电梯对象内部状态的变化不被调用类知晓，也就是迪米特法则了，我的类内部情节你知道越少越好，并且还定义了四个具体的实现类，承担的是状态的产生以及状态间的转换过渡，我们先来看State 程序:
+在类图中，定义了一个State抽象类，声明了一个私有的Context成员，这个是串联我们各个状态的封装类，封装的目的很明显，就是电梯对象内部状态的变化不被调用类知晓，也就是迪米特法则了，我的类内部情节你知道越少越好，并且还定义了四个具体的实现类，承担的是状态的产生以及状态间的转换过渡，我们先来看State 程序:
 
 ```cpp
 //State.h
@@ -802,10 +804,10 @@ class State {
 public:
 	void setContext(Context* context);
 	Context* getContext();
-	virtual void open() {};
-	virtual void stop() {};
-	virtual void run() {};
-	virtual void close() {};
+    virtual void open() { cout << "WRONG state to open" << endl; };
+	virtual void stop() { cout << "WRONG state to stop" << endl; };
+	virtual void run() { cout << "WRONG state to run" << endl; };
+	virtual void close() { cout << "WRONG state to close" << endl; };
 private:
 	Context* context;
 };
@@ -822,7 +824,9 @@ void State::setContext(Context* context) {
 Context* State::getContext() { return context; }
 ```
 
-抽象类比较简单，我们来先看一个具体的实现，门敞状态的实现类：
+抽象类比较简单，但需要注意的是，由于子类并不会实现所有的虚函数，所以抽象类的虚函数不能写成纯虚的。并且当子类使用到抽象类的实现时，表明当前状态下使用了未实现（不合理）的方法。
+
+接下来看一个具体的实现，门敞状态的实现类：
 
 ```cpp
 //OpeningState.h

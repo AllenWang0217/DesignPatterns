@@ -9,8 +9,11 @@ class ContreteHandler1 : public IHandler{
 		if (EVENT1 == event) {
 			cout << "ContreteHandler1 handle EVENT1" << endl;
 		}
-		else {
+		else if(nextHendler != nullptr){
 			nextHendler->HandleEvent(event);
 		}
+        else {
+            cout << "Unknown EVENT" << endl;
+        }
 	}
 };

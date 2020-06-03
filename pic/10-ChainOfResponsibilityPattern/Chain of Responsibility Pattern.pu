@@ -1,0 +1,43 @@
+@startuml
+title ChainOfResponsibilityPattern
+skinparam backgroundColor MediumTurquoise
+skinparam roundcorner 15
+skinparam sequenceArrowThickness 1.5
+'skinparam handwritten true
+
+enum EVENT
+{
+	EVENT1
+	EVENT2
+	EVENT3
+}
+
+abstract class IHandler {
+	+ {abstract} void HandleEvent(EVENT event) {} = 0;
+	+ void setNextHandler(IHandler* handler);
+	# IHandler* nextHendler;
+}
+
+class ContreteHandler1{
+	void HandleEvent(EVENT event);
+}
+note bottom : handle EVENT1 \nif not, go to next
+
+class ContreteHandler2{
+	void HandleEvent(EVENT event);
+}
+note bottom : handle EVENT2 \nif not, go to next
+
+class ContreteHandler3{
+	void HandleEvent(EVENT event);
+}
+note bottom : handle EVENT3 \nif not, go to next
+
+IHandler -> EVENT
+IHandler <|-- ContreteHandler1
+IHandler <|-- ContreteHandler2
+IHandler <|-- ContreteHandler3
+
+class Control << (C,#FF7700) >>
+Control -> IHandler
+@enduml

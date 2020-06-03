@@ -1,0 +1,33 @@
+@startuml
+title StrategyPattern
+skinparam backgroundColor MediumTurquoise
+skinparam roundcorner 15
+skinparam sequenceArrowThickness 1.5
+'skinparam handwritten true
+
+abstract class Strategy {
+	+ {abstract}  void algorithm() = 0;
+}
+
+class ConcreteStrategy1 {
+	+ void algorithm()
+}
+
+class ConcreteStrategy2 {
+	+ void algorithm()
+}
+
+class Context {
+	+ void setStrategy(Strategy* strategy)
+	+ void doAlgorithm()
+	- Strategy* strategy;
+}
+note left : void doAlgorithm : \nuse strategy's algorithm
+
+Strategy <|-- ConcreteStrategy1
+Strategy <|-- ConcreteStrategy2
+Context o-> Strategy
+
+class Control << (C,#FF7700) >>
+Control --> Context
+@enduml

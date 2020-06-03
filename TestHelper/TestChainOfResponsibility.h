@@ -14,6 +14,7 @@ public:
 
 		ch1->setNextHandler(ch2);
 		ch2->setNextHandler(ch3);
+        ch2->setNextHandler(nullptr);
 
 		ch1->HandleEvent(EVENT1);
 		ch1->HandleEvent(EVENT2);

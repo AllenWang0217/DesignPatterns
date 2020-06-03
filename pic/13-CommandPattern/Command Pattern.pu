@@ -1,0 +1,56 @@
+@startuml
+title CommandPattern
+skinparam backgroundColor MediumTurquoise
+skinparam roundcorner 15
+skinparam sequenceArrowThickness 1.5
+'skinparam handwritten true
+
+abstract class Command {
+    + {abstract}  void execute() = 0;
+}
+
+class ConcreteCommand1 {
+    + void execute()
+    - Receiver* receiver
+}
+note left : void execute : \nuse receiver's doCommand1
+class ConcreteCommand2 {
+    + void execute()
+    - Receiver* receiver
+}
+note right : void execute : \nuse receiver's doCommand2
+
+class Receiver {
+	+ void doCommand1()
+	+ void doCommand2()
+}
+
+class Invoker {
+	+ void addCommand(Command* command)
+	+ void delCommand()
+	+ void doCommand()
+	- list<Command*> commandList
+}
+note right : void doCommand() : \ndo all command
+
+class CommandManager {
+	+ void doCommand(Command* command)
+	+ void undoCommand()
+	+ void redoCommand()
+	- list<Command*> undoList
+	- list<Command*> redoList
+	- static int maxCommandNum
+}
+note right : void doCommand(Command*) : \ndo the command
+
+Command <|-- ConcreteCommand1
+Command <|-- ConcreteCommand2
+ConcreteCommand1 o--> Receiver
+ConcreteCommand2 o--> Receiver
+Invoker  o--> "many" Command
+CommandManager  o--> "many" Command
+
+class Control << (C,#FF7700) >>
+Control --> Invoker
+Control --> CommandManager
+@enduml

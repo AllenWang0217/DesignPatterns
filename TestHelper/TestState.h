@@ -9,7 +9,7 @@ public:
 	TestState() {
 		Context* context = new Context();
 		context->setState(new OpeningState());
-		cout << "电梯来了，开门： ";
+        cout << "电梯来了，开门： ";
 		context->open();
 		context->close();
 		context->run();
